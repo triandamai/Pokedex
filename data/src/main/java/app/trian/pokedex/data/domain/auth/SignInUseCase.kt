@@ -1,19 +1,21 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
 
+
 package app.trian.pokedex.data.domain.auth
 
-import com.bluehabit.budgetku.data.remote.auth.AuthDataSource
+import app.trian.pokedex.data.common.Response
+import app.trian.pokedex.data.remote.pokemon.AuthDataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class SignInWithEmailUseCase @Inject constructor(
+class SignInUseCase @Inject constructor(
     private val authDataSource: AuthDataSource
 ) {
     operator fun invoke(

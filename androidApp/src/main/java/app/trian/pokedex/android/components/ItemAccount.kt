@@ -1,9 +1,11 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
+
+
 
 package app.trian.pokedex.android.components
 
@@ -33,17 +35,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.bluehabit.budgetku.android.R
-import com.bluehabit.budgetku.android.base.BaseMainApp
-import com.bluehabit.budgetku.android.base.extensions.formatToRupiah
-import com.bluehabit.budgetku.android.ui.Grey100
-import com.bluehabit.budgetku.android.ui.Grey700
-import com.bluehabit.budgetku.android.ui.Yellow200
+import app.trian.pokedex.android.R
+import app.trian.pokedex.android.base.BaseMainApp
+import app.trian.pokedex.android.base.extensions.formatToRupiah
+import app.trian.pokedex.android.ui.Grey100
+import app.trian.pokedex.android.ui.Grey700
+import app.trian.pokedex.android.ui.Yellow200
 import java.math.BigDecimal
 
 @Composable
 fun ItemAccount(
-    icon:Int=R.drawable.ic_jago,
+    icon:Int= R.drawable.ic_jago,
     accountBankName: String = "",
     accountBalance: BigDecimal = BigDecimal.ZERO,
     selected: Boolean = false,

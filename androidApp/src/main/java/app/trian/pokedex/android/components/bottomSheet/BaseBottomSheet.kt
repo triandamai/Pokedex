@@ -1,9 +1,10 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
+
 
 package app.trian.pokedex.android.components.bottomSheet
 
@@ -30,9 +31,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.bluehabit.budgetku.android.components.button.ButtonPrimary
-import com.bluehabit.budgetku.android.ui.BudgetKuTheme
-import com.bluehabit.budgetku.android.ui.Grey300
+import app.trian.pokedex.android.components.button.ButtonPrimary
+import app.trian.pokedex.android.ui.Grey300
+import app.trian.pokedex.android.ui.PokedexTheme
 
 @Composable
 fun BaseBottomSheet(
@@ -113,7 +114,7 @@ fun BaseBottomSheet(
 @Preview
 @Composable
 fun PreviewBaseBottomSheet() {
-    BudgetKuTheme {
+    PokedexTheme {
         BaseBottomSheet()
     }
 }

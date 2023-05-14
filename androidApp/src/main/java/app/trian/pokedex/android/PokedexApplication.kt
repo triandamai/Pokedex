@@ -1,9 +1,10 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
+
 
 package app.trian.pokedex.android
 
@@ -16,7 +17,7 @@ import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
 @HiltAndroidApp
-class BudgetKuApplication:Application(), Configuration.Provider {
+class PokedexApplication:Application(), Configuration.Provider {
     @Inject
     lateinit var workerFactory: HiltWorkerFactory
     override fun attachBaseContext(base: Context?) {

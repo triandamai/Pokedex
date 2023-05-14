@@ -1,16 +1,18 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
+
+
 
 package app.trian.pokedex.android.base
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.bluehabit.budgetku.android.ApplicationState
+import app.trian.pokedex.android.ApplicationState
 
 //Wrapper for page composable
 //direct inject ViewModel to content,

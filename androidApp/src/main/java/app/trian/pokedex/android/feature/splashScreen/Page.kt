@@ -1,9 +1,11 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
+
+
 
 package app.trian.pokedex.android.feature.splashScreen
 
@@ -24,11 +26,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.bluehabit.budgetku.android.R
-import com.bluehabit.budgetku.android.ApplicationState
-import com.bluehabit.budgetku.android.base.BaseMainApp
-import com.bluehabit.budgetku.android.base.UIWrapper
-import com.bluehabit.budgetku.android.rememberApplicationState
+import app.trian.pokedex.android.ApplicationState
+import app.trian.pokedex.android.R
+import app.trian.pokedex.android.base.BaseMainApp
+import app.trian.pokedex.android.base.UIWrapper
+import app.trian.pokedex.android.rememberApplicationState
 
 object Splash {
     const val routeName = "Splash"

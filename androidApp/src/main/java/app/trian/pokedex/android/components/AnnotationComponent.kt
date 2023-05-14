@@ -1,9 +1,11 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
+
+
 
 package app.trian.pokedex.android.components
 
@@ -36,8 +38,8 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.bluehabit.budgetku.android.base.BaseMainApp
-import com.bluehabit.budgetku.android.base.extensions.appendButton
+import app.trian.pokedex.android.base.BaseMainApp
+import app.trian.pokedex.android.base.extensions.appendButton
 
 sealed class AnnotationTextItem(var text: String) {
     data class Text(var label: String, var style: TextStyle = TextStyle.Default) : AnnotationTextItem(label)

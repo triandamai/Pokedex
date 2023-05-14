@@ -1,16 +1,18 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
 
+
+
 package app.trian.pokedex.android.base.extensions
 
 import android.content.Context
 import android.content.res.Configuration
-import com.bluehabit.budgetku.android.ApplicationState
-import com.bluehabit.budgetku.android.components.menus
+import app.trian.pokedex.android.ApplicationState
+import app.trian.pokedex.android.components.menus
 
 fun ApplicationState.listenChanges(
     ctx: Context,

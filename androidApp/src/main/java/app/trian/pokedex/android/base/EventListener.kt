@@ -1,17 +1,19 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
 
+
+
 package app.trian.pokedex.android.base
 
 import androidx.compose.material.ModalBottomSheetValue
-import com.bluehabit.budgetku.android.base.listener.BottomNavigationListener
-import com.bluehabit.budgetku.android.base.listener.BottomSheetStateListener
-import com.bluehabit.budgetku.android.base.listener.ToAppStateEventListener
-import com.bluehabit.budgetku.android.components.DashboardBottomNavigationMenu
+import app.trian.pokedex.android.base.listener.BottomNavigationListener
+import app.trian.pokedex.android.base.listener.BottomSheetStateListener
+import app.trian.pokedex.android.base.listener.ToAppStateEventListener
+import app.trian.pokedex.android.components.DashboardBottomNavigationMenu
 
 
 class EventListener {
@@ -23,7 +25,7 @@ class EventListener {
         bottomNavigationEvent = listener
     }
 
-    fun refresh(item:DashboardBottomNavigationMenu) = bottomNavigationEvent?.onRefresh(item)
+    fun refresh(item: DashboardBottomNavigationMenu) = bottomNavigationEvent?.onRefresh(item)
     fun navigate(item:DashboardBottomNavigationMenu) = bottomNavigationEvent?.onNavigate(item)
     fun onFab() = bottomNavigationEvent?.onFab()
 

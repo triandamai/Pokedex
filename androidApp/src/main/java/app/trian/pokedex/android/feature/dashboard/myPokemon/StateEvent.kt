@@ -7,7 +7,7 @@
 
 
 
-package app.trian.pokedex.android.feature.splashScreen
+package app.trian.pokedex.android.feature.dashboard.myPokemon
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -15,10 +15,17 @@ import javax.annotation.concurrent.Immutable
 
 @Immutable
 @Parcelize
-data class SplashState(
+data class MyPokemonState(
+    val selectedTab:Int=0
+) : Parcelable
+
+@Immutable
+@Parcelize
+data class MyPokemonDataState(
     val a:String=""
 ) : Parcelable
 
-sealed class SplashEvent{
-    object CheckSession:SplashEvent()
+
+sealed interface CommunityEvent{
+
 }

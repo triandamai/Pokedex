@@ -1,9 +1,11 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
+
+
 
 package app.trian.pokedex.android
 
@@ -31,8 +33,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.bluehabit.budgetku.android.base.EventListener
-import com.bluehabit.budgetku.android.base.extensions.runSuspend
+import app.trian.pokedex.android.base.EventListener
+import app.trian.pokedex.android.base.extensions.runSuspend
 import kotlinx.coroutines.CoroutineScope
 
 class CreateContent(

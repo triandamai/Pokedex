@@ -1,9 +1,11 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
+
+
 
 package app.trian.pokedex.android.di
 
@@ -11,8 +13,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.android.AndroidSqliteDriver
-import com.bluehabit.budgetku.data.local.SharedPref
-import com.bluehabit.budgetku.db.Database
+import app.trian.pokedex.data.local.SharedPref
+import app.trian.pokedex.db.Database
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.chuckerteam.chucker.api.RetentionManager
@@ -57,12 +59,19 @@ object DataModule {
     )
 
     @Provides
-    fun provideDatabase(
+    fun provideDatabaseDriver(
         @ApplicationContext appContext: Context
     ): SqlDriver = AndroidSqliteDriver(
         Database.Schema,
         appContext,
         app.trian.pokedex.android.BuildConfig.DATABASE
+    )
+
+    @Provides
+    fun provideDatabase(
+        driver: SqlDriver
+    ): Database = Database(
+        driver = driver
     )
 
     @Provides

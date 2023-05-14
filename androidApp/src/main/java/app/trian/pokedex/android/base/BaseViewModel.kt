@@ -1,27 +1,29 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
+
+
 
 package app.trian.pokedex.android.base
 
 import android.os.Parcelable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bluehabit.budgetku.android.ApplicationState
-import com.bluehabit.budgetku.android.base.extensions.backPressedAndClose
-import com.bluehabit.budgetku.android.base.extensions.hideBottomSheet
-import com.bluehabit.budgetku.android.base.extensions.hideKeyboard
-import com.bluehabit.budgetku.android.base.extensions.navigate
-import com.bluehabit.budgetku.android.base.extensions.navigateAndReplace
-import com.bluehabit.budgetku.android.base.extensions.navigateAndReplaceAll
-import com.bluehabit.budgetku.android.base.extensions.navigateSingleTop
-import com.bluehabit.budgetku.android.base.extensions.navigateUp
-import com.bluehabit.budgetku.android.base.extensions.runSuspend
-import com.bluehabit.budgetku.android.base.extensions.showBottomSheet
-import com.bluehabit.budgetku.data.common.Response
+import app.trian.pokedex.android.ApplicationState
+import app.trian.pokedex.android.base.extensions.backPressedAndClose
+import app.trian.pokedex.android.base.extensions.hideBottomSheet
+import app.trian.pokedex.android.base.extensions.hideKeyboard
+import app.trian.pokedex.android.base.extensions.navigate
+import app.trian.pokedex.android.base.extensions.navigateAndReplace
+import app.trian.pokedex.android.base.extensions.navigateAndReplaceAll
+import app.trian.pokedex.android.base.extensions.navigateSingleTop
+import app.trian.pokedex.android.base.extensions.navigateUp
+import app.trian.pokedex.android.base.extensions.runSuspend
+import app.trian.pokedex.android.base.extensions.showBottomSheet
+import app.trian.pokedex.data.common.Response
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

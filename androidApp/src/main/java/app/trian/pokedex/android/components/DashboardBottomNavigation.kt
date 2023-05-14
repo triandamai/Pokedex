@@ -1,9 +1,11 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
+
+
 
 package app.trian.pokedex.android.components
 
@@ -19,13 +21,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.bluehabit.budgetku.android.R
-import com.bluehabit.budgetku.android.base.BaseMainApp
-import com.bluehabit.budgetku.android.feature.dashboard.budget.Budget
-import com.bluehabit.budgetku.android.feature.dashboard.community.Community
-import com.bluehabit.budgetku.android.feature.dashboard.home.Home
-import com.bluehabit.budgetku.android.feature.dashboard.report.Report
-import com.bluehabit.budgetku.android.ui.Grey500
+import app.trian.pokedex.android.R
+import app.trian.pokedex.android.base.BaseMainApp
+import app.trian.pokedex.android.feature.dashboard.myPokemon.MyPokemon
+import app.trian.pokedex.android.feature.dashboard.home.Home
+import app.trian.pokedex.android.ui.Grey500
 
 sealed class DashboardBottomNavigationMenu(
     val route: String = "",
@@ -40,33 +40,17 @@ sealed class DashboardBottomNavigationMenu(
         iconInactive = R.drawable.nav_home_inactive
     )
 
-    object MenuCommunity : DashboardBottomNavigationMenu(
-        route = Community.routeName,
+    object MenuMyPokemon : DashboardBottomNavigationMenu(
+        route = MyPokemon.routeName,
         name = R.string.label_nav_community_dashboard,
         iconActive = R.drawable.nav_community_active,
         iconInactive = R.drawable.nav_community_inactive
-    )
-
-    object MenuBudget : DashboardBottomNavigationMenu(
-        route = Budget.routeName,
-        name = R.string.label_nav_budget_dashboard,
-        iconActive = R.drawable.nav_budget_active,
-        iconInactive = R.drawable.nav_budget_inactive
-    )
-
-    object MenuReport : DashboardBottomNavigationMenu(
-        route = Report.routeName,
-        name = R.string.label_nav_report_dashboard,
-        iconActive = R.drawable.nav_report_active,
-        iconInactive = R.drawable.nav_report_inactive
     )
 }
 
 var menus = listOf(
     DashboardBottomNavigationMenu.MenuHome,
-    DashboardBottomNavigationMenu.MenuCommunity,
-    DashboardBottomNavigationMenu.MenuBudget,
-    DashboardBottomNavigationMenu.MenuReport
+    DashboardBottomNavigationMenu.MenuMyPokemon,
 )
 
 

@@ -6,7 +6,8 @@
  */
 
 
-package app.trian.pokedex.android.feature.dashboard.home
+
+package app.trian.pokedex.android.feature.dashboard.myPokemon
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
@@ -20,36 +21,43 @@ import app.trian.pokedex.android.base.BaseMainApp
 import app.trian.pokedex.android.base.UIWrapper
 import app.trian.pokedex.android.base.extensions.bottomNavigationListener
 import app.trian.pokedex.android.base.listener.BottomNavigationListener
-import app.trian.pokedex.android.components.DashboardBottomNavigation
 import app.trian.pokedex.android.components.DashboardBottomNavigationMenu
-import app.trian.pokedex.android.rememberApplicationState
 
-object Home {
-    const val routeName = "Home"
+object MyPokemon {
+    const val routeName = "Community"
 }
 
-fun NavGraphBuilder.routeHome(
-    state: ApplicationState
+fun NavGraphBuilder.routeMyPokemon(
+    state: ApplicationState,
 ) {
-    composable(Home.routeName) {
-        ScreenHome(appState = state)
-
+    composable(MyPokemon.routeName) {
+        ScreenMyPokemon(appState = state)
     }
 }
 
 @Composable
-internal fun ScreenHome(
-    appState: ApplicationState
-) = UIWrapper<HomeViewModel>(
-    appState = appState
-) {
-    val state by uiState.collectAsState(initial = HomeState())
-    val dataState by uiDataState.collectAsState(initial = HomeDataState())
-
-
+internal fun ScreenMyPokemon(
+    appState: ApplicationState,
+) = UIWrapper<MyPokemonViewModel>(appState = appState) {
+    val state by uiState.collectAsState()
+    val dataState by uiDataState.collectAsState()
 
     with(appState) {
-        hideTopAppBar()
+        setupTopAppBar {
+            TopAppBarDashboardCommunity(
+                selected = state.selectedTab,
+                onCreatePost = {
+
+                },
+                onSelect = {
+                    commit {
+                        copy(
+                            selectedTab = it
+                        )
+                    }
+                }
+            )
+        }
         setupBottomSheet {
 
         }
@@ -74,19 +82,27 @@ internal fun ScreenHome(
 
         }
     )
+}
+
+@Composable
+fun TopAppBarDashboardCommunity(
+    selected: Int = 0,
+    onCreatePost: () -> Unit = {},
+    onSelect: (Int) -> Unit = {}
+) {
+
+
 
 }
 
-
 @Preview
 @Composable
-fun PreviewScreenHome() {
+fun PreviewScreenMyPokemon() {
     BaseMainApp(
-        bottomBar = {
-            DashboardBottomNavigation(currentRoute = Home.routeName)
+        topAppBar = {
+            TopAppBarDashboardCommunity()
         }
     ) {
-        ScreenHome(rememberApplicationState())
+        ScreenMyPokemon(it)
     }
-
 }

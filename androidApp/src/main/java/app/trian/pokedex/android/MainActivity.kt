@@ -1,9 +1,10 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
+
 
 package app.trian.pokedex.android
 
@@ -12,10 +13,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalConfiguration
-import com.bluehabit.budgetku.android.base.BaseMainApp
-import com.bluehabit.budgetku.android.base.EventListener
-import com.bluehabit.budgetku.android.base.extensions.listenChanges
-import com.bluehabit.budgetku.android.base.listener.ToAppStateEventListener
+import app.trian.pokedex.android.base.BaseMainApp
+import app.trian.pokedex.android.base.EventListener
+import app.trian.pokedex.android.base.extensions.listenChanges
+import app.trian.pokedex.android.base.listener.ToAppStateEventListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -5,15 +5,15 @@
  * Proprietary and confidential
  */
 
-package app.trian.pokedex.android.feature.dashboard.community
+package app.trian.pokedex.android.feature.dashboard.myPokemon
 
-import com.bluehabit.budgetku.android.base.BaseViewModelData
+import app.trian.pokedex.android.base.BaseViewModelData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class CommunityViewModel @Inject constructor(
-) : BaseViewModelData<CommunityState,CommunityDataState, CommunityEvent>(CommunityState(),CommunityDataState()) {
+class MyPokemonViewModel @Inject constructor(
+) : BaseViewModelData<MyPokemonState, MyPokemonDataState, CommunityEvent>(MyPokemonState(),MyPokemonDataState()) {
     init {
         handleActions()
     }

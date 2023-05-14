@@ -1,9 +1,10 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
+
 
 package app.trian.pokedex.android.base
 
@@ -24,10 +25,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.bluehabit.budgetku.android.ApplicationState
-import com.bluehabit.budgetku.android.components.DashboardBottomNavigation
-import com.bluehabit.budgetku.android.rememberApplicationState
-import com.bluehabit.budgetku.android.ui.BudgetKuTheme
+import app.trian.pokedex.android.ApplicationState
+import app.trian.pokedex.android.components.DashboardBottomNavigation
+import app.trian.pokedex.android.rememberApplicationState
+import app.trian.pokedex.android.ui.PokedexTheme
 import compose.icons.FeatherIcons
 import compose.icons.feathericons.Plus
 
@@ -63,7 +64,7 @@ fun BaseMainApp(
     content: @Composable (appState: ApplicationState) -> Unit = { }
 ) {
 
-    BudgetKuTheme {
+    PokedexTheme {
         // A surface container using the 'background' color from the theme
         Surface(
             modifier = Modifier.fillMaxSize(),

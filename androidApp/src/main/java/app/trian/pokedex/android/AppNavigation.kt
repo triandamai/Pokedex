@@ -1,15 +1,22 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
 
+
+
 package app.trian.pokedex.android
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
+import app.trian.pokedex.android.feature.auth.signIn.routeSignIn
+import app.trian.pokedex.android.feature.dashboard.home.routeHome
+import app.trian.pokedex.android.feature.dashboard.myPokemon.routeMyPokemon
+import app.trian.pokedex.android.feature.onboarding.routeOnboard
 import app.trian.pokedex.android.feature.splashScreen.Splash
+import app.trian.pokedex.android.feature.splashScreen.routeSplash
 
 @Composable
 fun AppNavigation(
@@ -28,77 +35,12 @@ fun AppNavigation(
         routeSignIn(
             state = applicationState
         )
-        routeSignUp(
-            state = applicationState
-        )
-        routeCompleteProfile(
-            state = applicationState
-        )
+
+
         routeHome(
             state = applicationState
         )
-        routeCommunity(
-            state = applicationState
-        )
-        routeBudget(
-            state = applicationState
-        )
-        routeReport(
-            state = applicationState
-        )
-        routeCreateBudget(
-            state = applicationState
-        )
-        routeInputPin(
-            state = applicationState
-        )
-        routeChangePassword(
-            state = applicationState
-        )
-        routeResultCreateBudget(
-            state = applicationState
-        )
-        routeResetPassword(
-            state = applicationState
-        )
-        routeCreateNewPassword(
-            state = applicationState
-        )
-        routeCheckEmailResetPassword(
-            state = applicationState
-        )
-        routeCreateTransaction(
-            state = applicationState
-        )
-        routeTutorialBudget(
-            state = applicationState
-        )
-        routeCreateAccount(
-            state = applicationState
-        )
-        routeListAccount(
-
-            state = applicationState
-        )
-        routeDetailTransaction(
-            state = applicationState
-        )
-        routeEditTransaction(
-            state = applicationState
-        )
-        routeCreateAccountSaving(
-            state = applicationState
-        )
-        routeEditTransaction(
-            state = applicationState
-        )
-        routeCreatePost(
-            state = applicationState
-        )
-        routeEmailVerification(
-            state = applicationState
-        )
-        routeListTransaction(
+        routeMyPokemon(
             state = applicationState
         )
     }
