@@ -1,10 +1,11 @@
 <component name="CopyrightManager">
   <settings>
     <module2copyright>
-      <element module="Project Source Files" copyright="Blue Habit" />
-      <element module="Project Non-Source Files" copyright="Blue Habit" />
-      <element module="Non-Project Files" copyright="Blue Habit" />
-      <element module="Open Files" copyright="Blue Habit" />
+      <element module="Project Source Files" copyright="trian" />
+      <element module="Project Non-Source Files" copyright="trian" />
+      <element module="Non-Project Files" copyright="trian" />
+      <element module="Open Files" copyright="trian" />
+      <element module="All" copyright="trian" />
     </module2copyright>
   </settings>
 </component>

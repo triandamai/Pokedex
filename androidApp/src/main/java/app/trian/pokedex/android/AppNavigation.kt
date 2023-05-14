@@ -9,33 +9,7 @@ package app.trian.pokedex.android
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
-import com.bluehabit.budgetku.android.feature.auth.changePassword.routeChangePassword
-import com.bluehabit.budgetku.android.feature.auth.checkEmailResetPassword.routeCheckEmailResetPassword
-import com.bluehabit.budgetku.android.feature.auth.completeProfile.routeCompleteProfile
-import com.bluehabit.budgetku.android.feature.auth.createNewPassword.routeCreateNewPassword
-import com.bluehabit.budgetku.android.feature.auth.emailVerification.routeEmailVerification
-import com.bluehabit.budgetku.android.feature.auth.inputPin.routeInputPin
-import com.bluehabit.budgetku.android.feature.auth.resetPassword.routeResetPassword
-import com.bluehabit.budgetku.android.feature.auth.signIn.routeSignIn
-import com.bluehabit.budgetku.android.feature.auth.signUp.routeSignUp
-import com.bluehabit.budgetku.android.feature.createAccount.routeCreateAccount
-import com.bluehabit.budgetku.android.feature.createAccountSaving.routeCreateAccountSaving
-import com.bluehabit.budgetku.android.feature.createBudget.routeCreateBudget
-import com.bluehabit.budgetku.android.feature.createPost.routeCreatePost
-import com.bluehabit.budgetku.android.feature.createTransaction.routeCreateTransaction
-import com.bluehabit.budgetku.android.feature.dashboard.budget.routeBudget
-import com.bluehabit.budgetku.android.feature.dashboard.community.routeCommunity
-import com.bluehabit.budgetku.android.feature.dashboard.home.routeHome
-import com.bluehabit.budgetku.android.feature.dashboard.report.routeReport
-import com.bluehabit.budgetku.android.feature.detailTransaction.routeDetailTransaction
-import com.bluehabit.budgetku.android.feature.editTransaction.routeEditTransaction
-import com.bluehabit.budgetku.android.feature.listAccount.routeListAccount
-import com.bluehabit.budgetku.android.feature.listTransaction.routeListTransaction
-import com.bluehabit.budgetku.android.feature.onboarding.routeOnboard
-import com.bluehabit.budgetku.android.feature.resultCreateBudget.routeResultCreateBudget
-import com.bluehabit.budgetku.android.feature.splashScreen.Splash
-import com.bluehabit.budgetku.android.feature.splashScreen.routeSplash
-import com.bluehabit.budgetku.android.feature.tutorialBudget.routeTutorialBudget
+import app.trian.pokedex.android.feature.splashScreen.Splash
 
 @Composable
 fun AppNavigation(

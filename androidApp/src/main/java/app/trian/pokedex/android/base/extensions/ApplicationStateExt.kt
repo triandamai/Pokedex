@@ -1,15 +1,16 @@
 /*
- * Copyright © 2023 Blue Habit.
+ * Copyright © 2023 trian.app
  *
  * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  */
 
+
 package app.trian.pokedex.android.base.extensions
 
-import com.bluehabit.budgetku.android.ApplicationState
-import com.bluehabit.budgetku.android.base.listener.BottomNavigationListener
-import com.bluehabit.budgetku.android.base.listener.BottomSheetStateListener
+import app.trian.pokedex.android.ApplicationState
+import app.trian.pokedex.android.base.listener.BottomNavigationListener
+import app.trian.pokedex.android.base.listener.BottomSheetStateListener
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.launch
