@@ -11,18 +11,24 @@ package app.trian.pokedex.data.remote.pokemon
 
 import app.trian.pokedex.data.common.safeApiCall
 import app.trian.pokedex.data.local.SharedPref
+import app.trian.pokedex.data.model.AbilityResponse
+import app.trian.pokedex.data.model.PokemonResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.resources.get
-import io.ktor.client.request.get
 import javax.inject.Inject
 
-class AuthDataSource @Inject constructor(
+class PokemonDataSource @Inject constructor(
     private val httpClient: HttpClient,
     private val pref: SharedPref
 ) {
     suspend fun getPokemon(
-    ) = safeApiCall<Any> {
-       httpClient.get(PokemonApi.GetPokemon())
+    ) = safeApiCall<List<PokemonResponse>> {
+        httpClient.get(PokemonApi.GetPokemon())
+    }
+
+    suspend fun getAbility(
+    ) = safeApiCall<List<AbilityResponse>> {
+        httpClient.get(PokemonApi.GetAbilities())
     }
 
 

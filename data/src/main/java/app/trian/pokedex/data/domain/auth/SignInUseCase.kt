@@ -9,21 +9,22 @@
 package app.trian.pokedex.data.domain.auth
 
 import app.trian.pokedex.data.common.Response
-import app.trian.pokedex.data.remote.pokemon.AuthDataSource
+import app.trian.pokedex.data.local.SharedPref
+import app.trian.pokedex.data.remote.pokemon.PokemonDataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class SignInUseCase @Inject constructor(
-    private val authDataSource: AuthDataSource
+    private val sharedPref: SharedPref
 ) {
     operator fun invoke(
-        email: String,
-        password: String
+        fullName: String
     ) = flow {
         emit(Response.Loading)
-        val result = authDataSource.signInWithEmail(email, password)
-        emit(result)
+        sharedPref.setIsLoggedIn(true)
+        sharedPref.setFullName(fullName)
+        emit(Response.Result("Success save name"))
     }.flowOn(Dispatchers.IO)
 }

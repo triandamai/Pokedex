@@ -13,8 +13,10 @@ import android.content.Context
 import android.content.SharedPreferences
 import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.android.AndroidSqliteDriver
+import app.trian.pokedex.data.common.listOfStringsAdapter
 import app.trian.pokedex.data.local.SharedPref
-import app.trian.pokedex.db.Database
+import app.trian.pokedex.schema.pokemon.POKEMON
+import com.bluehabit.budgetku.db.Database
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.chuckerteam.chucker.api.RetentionManager
@@ -71,7 +73,13 @@ object DataModule {
     fun provideDatabase(
         driver: SqlDriver
     ): Database = Database(
-        driver = driver
+        driver = driver,
+        POKEMONAdapter = POKEMON.Adapter(
+            pokemonWeaknessesAdapter = listOfStringsAdapter,
+            pokemonAbilitiesAdapter = listOfStringsAdapter,
+            pokemonEvolutionsAdapter = listOfStringsAdapter,
+            pokemonTypeAdapter = listOfStringsAdapter
+        )
     )
 
     @Provides

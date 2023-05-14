@@ -1,0 +1,35 @@
+import kotlin.collections.List;
+
+CREATE TABLE IF NOT EXISTS ABILITY(
+    abilityId TEXT NOT NULL PRIMARY KEY,
+    abilityName TEXT NOT NULL,
+    abilityDescription TEXT NOT NULL
+);
+
+getById:
+SELECT * FROM ABILITY WHERE abilityId=?;
+
+getByName:
+SELECT * FROM ABILITY WHERE abilityName=?;
+
+getByNames:
+SELECT * FROM ABILITY WHERE abilityName IN ?;
+
+getTopOrNull:
+SELECT * FROM ABILITY LIMIT 1;
+
+insertAbility:
+INSERT INTO
+ABILITY(
+    abilityId,
+    abilityName,
+    abilityDescription
+)
+VALUES (
+?,
+?,
+?
+);
+
+deleteUserById:
+DELETE FROM ABILITY WHERE abilityId=?;

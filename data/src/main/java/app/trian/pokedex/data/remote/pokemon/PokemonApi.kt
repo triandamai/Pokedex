@@ -11,12 +11,12 @@ package app.trian.pokedex.data.remote.pokemon
 
 import io.ktor.resources.Resource
 
-@Resource("/v1/auth")
+@Resource("Pokedex/main/assets/")
 class PokemonApi {
-    @Resource("sign-in-email")
+    @Resource("pokemons.json")
     class GetPokemon(val parent: PokemonApi = PokemonApi())
 
-    @Resource("sign-in-google")
+    @Resource("abilites.json")
     class GetAbilities(val parent: PokemonApi = PokemonApi())
 
 }

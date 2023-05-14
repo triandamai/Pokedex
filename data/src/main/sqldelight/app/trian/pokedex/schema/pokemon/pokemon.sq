@@ -1,37 +1,64 @@
-CREATE TABLE IF NOT EXISTS USER(
-    userId TEXT NOT NULL PRIMARY KEY,
-    userFullName TEXT NOT NULL,
-    userEmail TEXT NOT NULL,
-    userPhoneNumber TEXT,
-    userDateOfBirth TEXT ,
-    userCountryCode TEXT NOT NULL,
-    userProfilePicture TEXT NOT NULL,
-    userStatus TEXT NOT NULL,
-    createdAt TEXT NOT NULL,
-    updatedAt TEXT NOT NULL
+import kotlin.collections.List;
+
+CREATE TABLE IF NOT EXISTS POKEMON(
+    pokemonId TEXT NOT NULL PRIMARY KEY,
+    pokemonName TEXT NOT NULL,
+    pokemonDescription TEXT NOT NULL,
+    pokemonHeight REAL NOT NULL ,
+    pokemonWeight REAL NOT NULL ,
+    pokemonCategory TEXT NOT NULL,
+    pokemonHp REAL NOT NULL,
+    pokemonAttack REAL NOT NULL,
+    pokemonDefense REAL NOT NULL,
+    pokemonSpeed REAL NOT NULL,
+    pokemonWeaknesses TEXT AS List<String> NOT NULL,
+    pokemonType TEXT AS List<String> NOT NULL,
+    pokemonAbilities TEXT AS List<String> NOT NULL,
+    pokemonEvolutions TEXT AS List<String> NOT NULL
 );
 
 getById:
-SELECT * FROM USER WHERE userId=?;
+SELECT * FROM POKEMON WHERE pokemonId=?;
+
+getByIds:
+SELECT * FROM POKEMON WHERE pokemonId IN ?;
 
 getTopOrNull:
-SELECT * FROM USER LIMIT 1;
+SELECT * FROM POKEMON LIMIT 1;
 
-insertUser:
+insertPokemon:
 INSERT INTO
-USER(
-    userId,
-    userFullName,
-    userEmail,
-    userPhoneNumber,
-    userDateOfBirth,
-    userCountryCode,
-    userProfilePicture,
-    userStatus,
-    createdAt,
-    updatedAt
+POKEMON(
+    pokemonId,
+    pokemonName,
+    pokemonDescription,
+    pokemonHeight,
+    pokemonWeight,
+    pokemonCategory,
+    pokemonHp,
+    pokemonAttack,
+    pokemonDefense,
+    pokemonSpeed,
+    pokemonWeaknesses,
+    pokemonType,
+    pokemonEvolutions,
+    pokemonAbilities
 )
-VALUES (?,?,?,?,?,?,?,?,?,?);
+VALUES (
+?,
+?,
+?,
+?,
+?,
+?,
+?,?,
+?,
+?,
+?,
+?,
+?,
+?
+);
 
 deleteUserById:
-DELETE FROM USER WHERE userId=?;
+DELETE FROM POKEMON WHERE pokemonId=?;

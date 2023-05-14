@@ -19,7 +19,15 @@ class SharedPref(
         const val isLoggedInKey = "hsdracvjkd"
         const val tokenKey = "syrtfjykvsujgdf"
         const val languageKey = "dtfvdff"
+        const val fullNameKey = "safgjhj"
     }
+
+    fun setFullName(fullName: String) = sharedPreferences.edit {
+        putString(fullNameKey, fullName)
+        apply()
+    }
+
+    fun getFullName() = sharedPreferences.getString(fullNameKey, "").orEmpty()
 
     fun setLanguage(lang: String) = sharedPreferences.edit {
         putString(languageKey, lang)
