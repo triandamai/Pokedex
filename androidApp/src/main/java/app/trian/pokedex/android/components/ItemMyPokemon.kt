@@ -24,9 +24,14 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Delete
+import androidx.compose.material.icons.outlined.MoreVert
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -55,13 +60,14 @@ import coil.size.Size
 import java.math.BigDecimal
 
 @Composable
-fun ItemPokemon(
+fun ItemMyPokemon(
     image: String = "",
     pokemonName: String = "",
     hp: Double = 0.0,
     defense: Double = 0.0,
     attack: Double = 0.0,
-    onClick: () -> Unit = {}
+    onClick: () -> Unit = {},
+    onOption: () -> Unit = {}
 ) {
     val ctx = LocalContext.current
     val currentWidth = ctx
@@ -74,7 +80,9 @@ fun ItemPokemon(
             .width(cardWidth)
             .height(cardWidth + 40.dp)
             .padding(
-                all = 8.dp
+                start = 8.dp,
+                end = 8.dp,
+                bottom = 8.dp
             )
     ) {
         Column(
@@ -175,15 +183,31 @@ fun ItemPokemon(
                     cardWidth / 2
                 )
         )
+
+
+        Icon(
+            imageVector = Icons.Outlined.Delete,
+            contentDescription = "",
+            tint = OnSurface,
+            modifier = Modifier
+                .clip(CircleShape)
+                .align(
+                    Alignment.TopEnd
+                )
+                .clickable(
+                    enabled = true,
+                    onClick = onOption
+                )
+        )
+
     }
 }
 
 @Preview
 @Composable
-fun PreviewItemPokemon() {
+fun PreviewItemMyPokemon() {
     PokedexTheme {
-
-        ItemPokemon(
+        ItemMyPokemon(
             pokemonName = "Balbasur",
             image = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
         )

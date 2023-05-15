@@ -11,6 +11,7 @@ package app.trian.pokedex.android.feature.dashboard.myPokemon
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -30,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraphBuilder
@@ -41,6 +43,7 @@ import app.trian.pokedex.android.base.extensions.bottomNavigationListener
 import app.trian.pokedex.android.base.extensions.gridItems
 import app.trian.pokedex.android.base.listener.BottomNavigationListener
 import app.trian.pokedex.android.components.DashboardBottomNavigationMenu
+import app.trian.pokedex.android.components.ItemMyPokemon
 import app.trian.pokedex.android.components.ItemPokemon
 import app.trian.pokedex.android.components.bottomSheet.BottomSheetCatchPokemon
 import app.trian.pokedex.android.feature.detailPokemon.DetailPokemon
@@ -67,7 +70,7 @@ internal fun ScreenMyPokemon(
     with(appState) {
         setupTopAppBar {
             TopAppBarDashboardMyPokemon(
-                name=state.fullName,
+                name = state.fullName,
                 onExit = {
                     dispatch(MyPokemonEvent.SignOut)
                 }
@@ -98,15 +101,30 @@ internal fun ScreenMyPokemon(
         })
     }
     LazyColumn(
+        contentPadding = PaddingValues(
+            horizontal = 8.dp
+        ),
         content = {
             item {
                 Spacer(modifier = Modifier.height(20.dp))
+            }
+            if(dataState.myPokemon.isEmpty()){
+                item {
+                    Text(
+                        text = "You don't have collection yet...",
+                        style = MaterialTheme.typography.h5,
+                        color = MaterialTheme.colors.primary,
+                        fontWeight = FontWeight.Medium,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
             }
             gridItems(
                 dataState.myPokemon,
                 columnCount = 2
             ) {
-                ItemPokemon(
+                ItemMyPokemon(
                     pokemonName = it.nickName,
                     image = it.pokemonImage,
                     hp = it.pokemonHp,
@@ -117,6 +135,9 @@ internal fun ScreenMyPokemon(
                             DetailPokemon.routeName,
                             it.pokemonId
                         )
+                    },
+                    onOption = {
+                        dispatch(MyPokemonEvent.Release(it.collectionId))
                     }
                 )
             }

@@ -72,5 +72,5 @@ VALUES (
 ?
 );
 
-deleteUserById:
+deletByCollectionId:
 DELETE FROM COLLECTION WHERE collectionId=?;

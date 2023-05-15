@@ -13,6 +13,7 @@ import app.trian.pokedex.data.domain.auth.GetProfileUseCase
 import app.trian.pokedex.data.domain.auth.SignOutUseCase
 import app.trian.pokedex.data.domain.pokemon.CatchPokemonUseCase
 import app.trian.pokedex.data.domain.pokemon.GetMyPokemonUseCase
+import app.trian.pokedex.data.domain.pokemon.ReleaseMyPokemonUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -21,7 +22,8 @@ class MyPokemonViewModel @Inject constructor(
     private val catchPokemonUseCase: CatchPokemonUseCase,
     private val getMyPokemonUseCase: GetMyPokemonUseCase,
     private val signOutUseCase: SignOutUseCase,
-    private val getProfileUseCase: GetProfileUseCase
+    private val getProfileUseCase: GetProfileUseCase,
+    private val releaseMyPokemonUseCase: ReleaseMyPokemonUseCase
 ) : BaseViewModelData<MyPokemonState, MyPokemonDataState, MyPokemonEvent>(
     MyPokemonState(),
     MyPokemonDataState()
@@ -30,6 +32,17 @@ class MyPokemonViewModel @Inject constructor(
         handleActions()
         getMyPokemon()
         getProfile()
+    }
+
+    private fun releasePokemon(collectionId: String) = async {
+        releaseMyPokemonUseCase(collectionId)
+            .onEach(
+                loading = {},
+                error = {},
+                success = {
+                    getMyPokemon()
+                }
+            )
     }
 
     private fun getProfile() = async {
@@ -100,6 +113,7 @@ class MyPokemonViewModel @Inject constructor(
         when (it) {
             MyPokemonEvent.Catch -> catchPokemon()
             MyPokemonEvent.SignOut -> signOut()
+            is MyPokemonEvent.Release -> releasePokemon(it.collectionId)
         }
     }
 

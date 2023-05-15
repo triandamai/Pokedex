@@ -31,5 +31,5 @@ VALUES (
 ?
 );
 
-deleteUserById:
+deleteAbiltyById:
 DELETE FROM ABILITY WHERE abilityId=?;

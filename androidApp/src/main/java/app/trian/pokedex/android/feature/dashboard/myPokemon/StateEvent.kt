@@ -18,18 +18,20 @@ import javax.annotation.concurrent.Immutable
 @Immutable
 @Parcelize
 data class MyPokemonState(
-    val fullName:String=""
+    val fullName: String = ""
 ) : Parcelable
 
 @Immutable
 @Parcelize
 data class MyPokemonDataState(
-    val myPokemon:@RawValue List<CollectionModel> = listOf()
+    val myPokemon: @RawValue List<CollectionModel> = listOf()
 ) : Parcelable
 
 
-sealed interface MyPokemonEvent{
-    object Catch:MyPokemonEvent
+sealed interface MyPokemonEvent {
+    object Catch : MyPokemonEvent
 
-    object SignOut:MyPokemonEvent
+    object SignOut : MyPokemonEvent
+
+    data class Release(val collectionId: String) : MyPokemonEvent
 }
