@@ -63,7 +63,8 @@ import coil.size.Size
 object DetailPokemon {
     const val routeName = "DetailPokemon"
     const val argKey = "id"
-    fun routeName() = "DetailPokemon/{${argKey}}"
+    const val argKey2 = "name"
+    fun routeName() = "DetailPokemon/{${argKey}}/{$argKey2}"
 
     val menus = listOf(
         "Abilities",
@@ -79,6 +80,9 @@ fun NavGraphBuilder.routeDetailPokemon(
         DetailPokemon.routeName(),
         arguments = listOf(
             navArgument(DetailPokemon.argKey) {
+                type = NavType.StringType
+            },
+            navArgument(DetailPokemon.argKey2) {
                 type = NavType.StringType
             }
         )

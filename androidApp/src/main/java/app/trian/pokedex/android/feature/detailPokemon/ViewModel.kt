@@ -24,10 +24,11 @@ class DetailPokemonViewModel @Inject constructor(
     init {
         handleActions()
         val id = savedStateHandle.get<String>(DetailPokemon.argKey).orEmpty()
-        getDetailPokemon(id)
+        val name = savedStateHandle.get<String>(DetailPokemon.argKey2).orEmpty()
+        getDetailPokemon(id, name)
     }
 
-    private fun getDetailPokemon(id: String) = async {
+    private fun getDetailPokemon(id: String, name: String) = async {
         getDetailPokemonUseCase(id)
             .onEach(
                 loading = {},
@@ -37,16 +38,17 @@ class DetailPokemonViewModel @Inject constructor(
                 success = {
                     commitData {
                         copy(
-                            pokemonName=this@onEach.pokemonName,
-                            pokemonImage=this@onEach.pokemonImage,
-                            pokemonDescription=this@onEach.pokemonDescription,
-                            height=this@onEach.pokemonHeight,
-                            weight=this@onEach.pokemonHeight,
-                            abilities=this@onEach.pokemonAbilities,
+                            pokemonName = if (name.isEmpty() || name == "empty") this@onEach.pokemonName
+                            else "$name(${this@onEach.pokemonName})",
+                            pokemonImage = this@onEach.pokemonImage,
+                            pokemonDescription = this@onEach.pokemonDescription,
+                            height = this@onEach.pokemonHeight,
+                            weight = this@onEach.pokemonHeight,
+                            abilities = this@onEach.pokemonAbilities,
                             category = this@onEach.pokemonCategory,
                             hp = this@onEach.pokemonHp,
                             defense = this@onEach.pokemonDefense,
-                            attack = this@onEach.pokemonAttack
+                            attack = this@onEach.pokemonAttack,
                         )
                     }
                 }

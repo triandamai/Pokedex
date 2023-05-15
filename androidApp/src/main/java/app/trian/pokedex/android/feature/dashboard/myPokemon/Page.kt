@@ -108,7 +108,7 @@ internal fun ScreenMyPokemon(
             item {
                 Spacer(modifier = Modifier.height(20.dp))
             }
-            if(dataState.myPokemon.isEmpty()){
+            if (dataState.myPokemon.isEmpty()) {
                 item {
                     Text(
                         text = "You don't have collection yet...",
@@ -133,7 +133,8 @@ internal fun ScreenMyPokemon(
                     onClick = {
                         navigateSingleTop(
                             DetailPokemon.routeName,
-                            it.pokemonId
+                            it.pokemonId,
+                            it.nickName
                         )
                     },
                     onOption = {

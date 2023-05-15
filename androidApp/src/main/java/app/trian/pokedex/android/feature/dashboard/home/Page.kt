@@ -147,7 +147,8 @@ internal fun ScreenHome(
                     onClick = {
                         navigateSingleTop(
                             DetailPokemon.routeName,
-                            it.pokemonId
+                            it.pokemonId,
+                            "empty"
                         )
                     }
                 )

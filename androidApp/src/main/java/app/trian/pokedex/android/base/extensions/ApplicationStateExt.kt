@@ -42,9 +42,8 @@ fun ApplicationState.navigateUp() {
 fun ApplicationState.navigate(routeName: String, vararg args: String) {
     var buildRoute = routeName
     if (args.isNotEmpty()) {
-        args.forEach {
-            buildRoute = buildString {
-                append(routeName)
+        buildRoute += buildString {
+            args.forEach {
                 append("/")
                 append(it)
             }
@@ -65,9 +64,8 @@ fun ApplicationState.navigate(routeName: String, vararg args: String) {
 fun ApplicationState.navigateSingleTop(routeName: String, vararg args: String) {
     var buildRoute = routeName
     if (args.isNotEmpty()) {
-        args.forEach {
-            buildRoute = buildString {
-                append(routeName)
+        buildRoute += buildString {
+            args.forEach {
                 append("/")
                 append(it)
             }
@@ -90,9 +88,8 @@ fun ApplicationState.navigateSingleTop(routeName: String, vararg args: String) {
 fun ApplicationState.navigateAndReplace(routeName: String, vararg args: String) {
     var buildRoute = routeName
     if (args.isNotEmpty()) {
-        args.forEach {
-            buildRoute = buildString {
-                append(routeName)
+        buildRoute += buildString {
+            args.forEach {
                 append("/")
                 append(it)
             }
@@ -117,9 +114,8 @@ fun ApplicationState.navigateAndReplace(routeName: String, vararg args: String) 
 fun ApplicationState.navigateAndReplaceAll(routeName: String, vararg args: String) {
     var buildRoute = routeName
     if (args.isNotEmpty()) {
-        args.forEach {
-            buildRoute = buildString {
-                append(routeName)
+        buildRoute += buildString {
+            args.forEach {
                 append("/")
                 append(it)
             }
