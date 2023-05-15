@@ -8,6 +8,7 @@
 package app.trian.pokedex.android.feature.detailPokemon
 
 import android.os.Parcelable
+import app.trian.pokedex.data.model.PokemonModel
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.RawValue
 import javax.annotation.concurrent.Immutable
@@ -21,17 +22,20 @@ data class DetailPokemonState(
 @Immutable
 @Parcelize
 data class DetailPokemonDataState(
-    val pokemonName:String="",
-    val pokemonImage:String="",
-    val pokemonDescription:String="",
-    val height:String="",
-    val weight:String="",
-    val category:String="",
+    val pokemonName: String = "",
+    val pokemonImage: String = "",
+    val pokemonDescription: String = "",
+    val height: String = "",
+    val weight: String = "",
+    val category: String = "",
     val abilities: @RawValue List<String> = listOf(),
-    val hp:Double=0.0,
-    val attack:Double=0.0,
-    val defense:Double=0.0
+    val hp: Double = 0.0,
+    val attack: Double = 0.0,
+    val defense: Double = 0.0,
+    val evolutions: @RawValue List<String> = listOf(),
+    val evolution: @RawValue List<PokemonModel> = listOf()
 ) : Parcelable
 
 sealed interface DetailPokemonEvent {
+    object GetEvolution : DetailPokemonEvent
 }

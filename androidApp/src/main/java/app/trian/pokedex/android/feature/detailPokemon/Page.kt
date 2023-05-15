@@ -53,6 +53,8 @@ import app.trian.pokedex.android.ApplicationState
 import app.trian.pokedex.android.R
 import app.trian.pokedex.android.base.BaseMainApp
 import app.trian.pokedex.android.base.UIWrapper
+import app.trian.pokedex.android.base.extensions.gridItems
+import app.trian.pokedex.android.components.ItemPokemon
 import app.trian.pokedex.android.ui.BackgroundCard
 import app.trian.pokedex.android.ui.OnSurface
 import app.trian.pokedex.android.ui.Surface
@@ -275,112 +277,143 @@ internal fun ScreenDetailPokemon(
                 item {
                     Spacer(modifier = Modifier.height(18.dp))
                 }
-                item {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(
-                                end = 16.dp
+                if(state.selectedMenu == 2){
+                    item {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(
+                                    end = 16.dp
+                                )
+                        ) {
+                            Text(
+                                text = "Abilities",
+                                style = MaterialTheme.typography.body1,
+                                fontWeight = FontWeight.Medium,
+                                color = Color.White
                             )
-                    ) {
-                        Text(
-                            text = "Abilities",
-                            style = MaterialTheme.typography.body1,
-                            fontWeight = FontWeight.Medium,
-                            color = Color.White
-                        )
-                        Spacer(modifier = Modifier.height(14.dp))
-                        FlowRow {
-                            dataState.abilities.forEach {
-                                Row(
-                                    modifier = Modifier
-                                        .clip(
-                                            MaterialTheme.shapes.small
-                                        )
-                                        .background(
-                                            BackgroundCard
-                                        )
-                                        .clickable {  }
-                                        .padding(
-                                            horizontal = 8.dp,
-                                            vertical = 2.dp
-                                        )
+                            Spacer(modifier = Modifier.height(14.dp))
+                            FlowRow {
+                                dataState.abilities.forEach {
+                                    Row(
+                                        modifier = Modifier
+                                            .clip(
+                                                MaterialTheme.shapes.small
+                                            )
+                                            .background(
+                                                BackgroundCard
+                                            )
+                                            .clickable {  }
+                                            .padding(
+                                                horizontal = 8.dp,
+                                                vertical = 2.dp
+                                            )
 
-                                ) {
-                                    Text(
-                                        text = "#${it}",
-                                        style = MaterialTheme.typography.body1,
-                                        fontWeight = FontWeight.Medium,
-                                        color = OnSurface
-                                    )
+                                    ) {
+                                        Text(
+                                            text = "#${it}",
+                                            style = MaterialTheme.typography.body1,
+                                            fontWeight = FontWeight.Medium,
+                                            color = OnSurface
+                                        )
+                                    }
                                 }
                             }
-                        }
 
+                        }
+                    }
+                    item {
+                        Spacer(modifier = Modifier.height(18.dp))
+                    }
+                    item {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(
+                                    end = 16.dp
+                                )
+                        ) {
+                            Text(
+                                text = "Base Stats",
+                                style = MaterialTheme.typography.body1,
+                                fontWeight = FontWeight.Medium,
+                                color = Color.White
+                            )
+                            Spacer(modifier = Modifier.height(10.dp))
+                            Text(
+                                text = "Hp",
+                                style = MaterialTheme.typography.body2,
+                                fontWeight = FontWeight.Normal,
+                                color = OnSurface
+                            )
+                            LinearProgressIndicator(
+                                progress = ((dataState.hp.toFloat() / 100) * 100) / 100,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(8.dp),
+                                color = MaterialTheme.colors.primary,
+                                backgroundColor = BackgroundCard,
+                                strokeCap = StrokeCap.Round
+                            )
+                            Text(
+                                text = "Attack",
+                                style = MaterialTheme.typography.body2,
+                                fontWeight = FontWeight.Normal,
+                                color = OnSurface
+                            )
+                            LinearProgressIndicator(
+                                progress = ((dataState.attack.toFloat() / 100) * 100) / 100,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(8.dp),
+                                color = MaterialTheme.colors.primary,
+                                backgroundColor = BackgroundCard,
+                                strokeCap = StrokeCap.Round
+                            )
+                            Text(
+                                text = "Defense",
+                                style = MaterialTheme.typography.body2,
+                                fontWeight = FontWeight.Normal,
+                                color = OnSurface
+                            )
+                            LinearProgressIndicator(
+                                progress = ((dataState.defense.toFloat() / 100) * 100) / 100,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(8.dp),
+                                color = MaterialTheme.colors.primary,
+                                backgroundColor = BackgroundCard,
+                                strokeCap = StrokeCap.Round
+                            )
+                        }
                     }
                 }
-                item {
-                    Spacer(modifier = Modifier.height(18.dp))
-                }
-                item {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(
-                                end = 16.dp
+                if(state.selectedMenu == 1){
+                    item {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(
+                                    end = 16.dp
+                                )
+                        ) {
+                            Text(
+                                text = "Base Stats",
+                                style = MaterialTheme.typography.body1,
+                                fontWeight = FontWeight.Medium,
+                                color = Color.White
                             )
-                    ) {
-                        Text(
-                            text = "Base Stats",
-                            style = MaterialTheme.typography.body1,
-                            fontWeight = FontWeight.Medium,
-                            color = Color.White
-                        )
-                        Spacer(modifier = Modifier.height(10.dp))
-                        Text(
-                            text = "Hp",
-                            style = MaterialTheme.typography.body2,
-                            fontWeight = FontWeight.Normal,
-                            color = OnSurface
-                        )
-                        LinearProgressIndicator(
-                            progress = ((dataState.hp.toFloat() / 100) * 100) / 100,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(8.dp),
-                            color = MaterialTheme.colors.primary,
-                            backgroundColor = BackgroundCard,
-                            strokeCap = StrokeCap.Round
-                        )
-                        Text(
-                            text = "Attack",
-                            style = MaterialTheme.typography.body2,
-                            fontWeight = FontWeight.Normal,
-                            color = OnSurface
-                        )
-                        LinearProgressIndicator(
-                            progress = ((dataState.attack.toFloat() / 100) * 100) / 100,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(8.dp),
-                            color = MaterialTheme.colors.primary,
-                            backgroundColor = BackgroundCard,
-                            strokeCap = StrokeCap.Round
-                        )
-                        Text(
-                            text = "Defense",
-                            style = MaterialTheme.typography.body2,
-                            fontWeight = FontWeight.Normal,
-                            color = OnSurface
-                        )
-                        LinearProgressIndicator(
-                            progress = ((dataState.defense.toFloat() / 100) * 100) / 100,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(8.dp),
-                            color = MaterialTheme.colors.primary,
-                            backgroundColor = BackgroundCard,
-                            strokeCap = StrokeCap.Round
+                            Spacer(modifier = Modifier.height(10.dp))
+                        }
+                    }
+                    gridItems(dataState.evolution, columnCount = 2){
+                        ItemPokemon(
+                            pokemonName = it.pokemonName,
+                            image = it.pokemonImage,
+                            hp = it.pokemonHp,
+                            defense = it.pokemonDefense,
+                            attack = it.pokemonAttack,
+                            onClick = {}
                         )
                     }
                 }

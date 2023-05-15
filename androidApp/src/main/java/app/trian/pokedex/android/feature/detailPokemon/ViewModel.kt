@@ -10,13 +10,15 @@ package app.trian.pokedex.android.feature.detailPokemon
 import androidx.lifecycle.SavedStateHandle
 import app.trian.pokedex.android.base.BaseViewModelData
 import app.trian.pokedex.data.domain.pokemon.GetDetailPokemonUseCase
+import app.trian.pokedex.data.domain.pokemon.GetEvolutionPokemonUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class DetailPokemonViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val getDetailPokemonUseCase: GetDetailPokemonUseCase
+    private val getDetailPokemonUseCase: GetDetailPokemonUseCase,
+    private val getEvolutionPokemonUseCase: GetEvolutionPokemonUseCase
 ) : BaseViewModelData<DetailPokemonState, DetailPokemonDataState, DetailPokemonEvent>(
     DetailPokemonState(),
     DetailPokemonDataState()
@@ -49,12 +51,35 @@ class DetailPokemonViewModel @Inject constructor(
                             hp = this@onEach.pokemonHp,
                             defense = this@onEach.pokemonDefense,
                             attack = this@onEach.pokemonAttack,
+                            evolutions = this@onEach.pokemonEvolutions
+                        )
+                    }
+                    getEvolutions()
+                }
+            )
+    }
+
+    private fun getEvolutions() = asyncWithData {
+        getEvolutionPokemonUseCase(evolutions)
+            .onEach(
+                loading = {},
+                error = {
+                    showSnackbar(this)
+                },
+                success = {
+                    commitData {
+                        copy(
+                            evolution = this@onEach
                         )
                     }
                 }
             )
     }
 
-    override fun handleActions() = onEvent {}
+    override fun handleActions() = onEvent {
+        when (it) {
+            DetailPokemonEvent.GetEvolution -> getEvolutions()
+        }
+    }
 
 }
