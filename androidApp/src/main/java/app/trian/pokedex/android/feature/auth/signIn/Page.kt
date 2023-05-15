@@ -65,6 +65,10 @@ internal fun ScreenSignIn(appState: ApplicationState) = UIWrapper<SignInViewMode
 ) {
     val state by uiState.collectAsState()
 
+    with(appState){
+        hideTopAppBar()
+        hideBottomAppBar()
+    }
 
 
     Column(

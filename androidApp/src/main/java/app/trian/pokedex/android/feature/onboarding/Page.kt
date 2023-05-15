@@ -71,6 +71,10 @@ internal fun ScreenOnboard(
         composition = composition,
         iterations = LottieConstants.IterateForever
     )
+    with(appState){
+        hideTopAppBar()
+        hideBottomAppBar()
+    }
 
     Column(
         modifier = Modifier

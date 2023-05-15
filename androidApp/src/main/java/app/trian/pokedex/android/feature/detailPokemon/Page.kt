@@ -114,6 +114,7 @@ internal fun ScreenDetailPokemon(
                 elevation = 0.dp
             )
         }
+        hideBottomAppBar()
     }
     Row(
         modifier = Modifier
@@ -303,7 +304,7 @@ internal fun ScreenDetailPokemon(
                                             .background(
                                                 BackgroundCard
                                             )
-                                            .clickable {  }
+                                            .clickable { }
                                             .padding(
                                                 horizontal = 8.dp,
                                                 vertical = 2.dp

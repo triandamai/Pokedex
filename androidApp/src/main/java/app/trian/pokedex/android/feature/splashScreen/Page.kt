@@ -45,6 +45,10 @@ fun NavGraphBuilder.routeSplash(
 internal fun ScreenSplash(
     state: ApplicationState,
 ) = UIWrapper<SplashViewModel>(appState = state) {
+    with(state){
+        hideTopAppBar()
+        hideBottomAppBar()
+    }
     LaunchedEffect(key1 = this, block = {
         dispatch(SplashEvent.CheckSession)
     })

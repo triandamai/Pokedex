@@ -67,6 +67,10 @@ internal fun ScreenCatchPokemon(
     val state by uiState.collectAsState()
     val dataState by uiDataState.collectAsState()
 
+    with(appState){
+        hideTopAppBar()
+        hideBottomAppBar()
+    }
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
