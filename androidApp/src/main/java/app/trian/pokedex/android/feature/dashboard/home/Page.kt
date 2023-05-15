@@ -11,6 +11,7 @@ package app.trian.pokedex.android.feature.dashboard.home
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -122,8 +123,14 @@ internal fun ScreenHome(
 
                 }
             }
-            if(dataState.pokemons.isEmpty()){
+            if (dataState.pokemons.isEmpty()) {
+
                 item {
+                    Spacer(
+                        modifier = Modifier.fillMaxHeight(
+                            fraction = 0.5f
+                        )
+                    )
                     Text(
                         text = "Oops all pokemon running away...",
                         style = MaterialTheme.typography.h5,
