@@ -1,15 +1,17 @@
+/*
+ * Copyright © 2023 trian.app
+ *
+ * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ */
+
+
 @file:Suppress("UnstableApiUsage")
 
 import com.android.build.api.dsl.ApkSigningConfig
 import com.android.build.api.dsl.ApplicationBuildType
 import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin.Companion.isIncludeCompileClasspath
 
-/*
- * Copyright © 2023 Blue Habit.
- *
- * Unauthorized copying, publishing of this file, via any medium is strictly prohibited
- * Proprietary and confidential
- */
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
