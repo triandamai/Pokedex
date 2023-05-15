@@ -111,7 +111,7 @@ internal fun ScreenSignIn(appState: ApplicationState) = UIWrapper<SignInViewMode
         ) {
             FormInput(
                 placeholder = "Input your name",
-                label="Full Name",
+                label = "Full Name",
                 value = state.fullName,
                 onChange = {
                     commit {
@@ -129,6 +129,7 @@ internal fun ScreenSignIn(appState: ApplicationState) = UIWrapper<SignInViewMode
             ButtonPrimary(
                 text = "Start",
             ) {
+                hideKeyboard()
                 dispatch(SignInEvent.Submit)
             }
             Spacer(modifier = Modifier.height(20.dp))
