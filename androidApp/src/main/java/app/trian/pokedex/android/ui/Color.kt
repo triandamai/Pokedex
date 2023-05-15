@@ -87,16 +87,17 @@ val Grey700 = Color(0xFF616161)
 val Grey800 = Color(0xFF424242)
 val Grey900 = Color(0xFF212121)
 
-val Primary = Color(0xFF1962FE)
+val Primary = Color(0xFFFD9214)//Color(0xFF1962FE)
 val PrimaryVariant = Color(0xFF0099FF)
 val Secondary = Color(0xFFFD9214)
 val SecondaryVariant = Color(0xFFFD9214)
 val Background = Color(0xFFFFFFFF)
-val Surface = Color(0xFFFFFFFF)
+val Surface = Color(0xFF29304f)
 val Error = Color(0xFFFE3419)
-val OnPrimary = Background
+val ColorOnPrimary = Color(0xFF0a0c17)
 val OnSecondary = Color(0xFF212121)
 val OnBackground = OnSecondary
-val OnSurface = OnSecondary
+val OnSurface = Color(0xFFc1c3cb)
 val OnError = Background
+val BackgroundCard = Color(0xFF353c63)
 

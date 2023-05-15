@@ -14,14 +14,20 @@ import javax.annotation.concurrent.Immutable
 @Immutable
 @Parcelize
 data class CatchPokemonState(
-    val a: String = ""
+    val nickName: String = ""
 ) : Parcelable
 
 @Immutable
 @Parcelize
 data class CatchPokemonDataState(
-    val a: String = ""
+    val pokemonName: String = "",
+    val pokemonImage: String = "",
+    val pokemonId: String = "",
+    val hp: Double = 0.0,
+    val defense: Double = 0.0,
+    val attack: Double = 0.0
 ) : Parcelable
 
 sealed interface CatchPokemonEvent {
+    object Submit:CatchPokemonEvent
 }

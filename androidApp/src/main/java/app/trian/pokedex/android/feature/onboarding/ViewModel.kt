@@ -9,32 +9,31 @@
 package app.trian.pokedex.android.feature.onboarding
 
 import app.trian.pokedex.android.base.BaseViewModel
+import app.trian.pokedex.android.feature.dashboard.home.Home
+import app.trian.pokedex.data.domain.auth.CheckSessionUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class OnboardViewModel @Inject constructor(
+    private val checkSessionUseCase: CheckSessionUseCase
 ) : BaseViewModel<OnboardState, OnboardEvent>(OnboardState()) {
     init {
         handleActions()
+        checkName()
     }
 
-    private fun calculatePager(page: Int) = async {
-        val percentage = when (page) {
-            0 -> 0.1f
-            1 -> 0.2f
-            2 -> 0.5f
-            3 -> 0.7f
-            4 -> 1f
-            else -> 0.1f
+    private fun checkName() = async {
+
+        commit {
+            copy(
+                hasName = checkSessionUseCase()
+            )
         }
-        commit { copy(percentage = percentage) }
     }
 
     override fun handleActions() = onEvent {
-        when (it) {
-            is OnboardEvent.PagerChanges -> calculatePager(it.page)
-        }
+
     }
 
 }

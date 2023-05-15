@@ -9,6 +9,7 @@
 
 package app.trian.pokedex.data.common
 
+import android.util.Log
 import app.trian.pokedex.data.model.BaseResponse
 import io.ktor.client.call.body
 import io.ktor.client.statement.HttpResponse
@@ -24,6 +25,7 @@ suspend inline fun <reified T> safeApiCall(call: () -> HttpResponse): Response<T
             Response.Error(data.message, data.code)
         }
     }catch (e:Exception){
+        Log.e("HAHA",e.message.orEmpty())
         Response.Error(e.message.orEmpty())
     }
 }

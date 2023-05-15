@@ -56,7 +56,7 @@
     <!--    end Input PIN dan Create PIN-->
 
     <!--    dashboard -->
-    <string name="label_nav_community_dashboard">Komunitas</string>
+    <string name="label_nav_mypokemon_dashboard">My Pokemon</string>
     <string name="label_nav_home_dashboard">Home</string>
     <string name="label_nav_budget_dashboard">Anggaran</string>
     <string name="label_nav_report_dashboard">Laporan</string>

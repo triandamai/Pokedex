@@ -32,6 +32,9 @@ composeIcons = "1.1.0"
 [libraries]
 android-material={group="com.google.android.material",name="material",version="1.8.0"}
 
+#Lottie
+lottie={group="com.airbnb.android",name="lottie-compose",version="6.0.0"}
+
 #Compose
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 compose-material = { group = "androidx.compose.material", name = "material" }

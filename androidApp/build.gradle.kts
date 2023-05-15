@@ -91,7 +91,8 @@ android {
             "-opt-in=androidx.compose.material.ExperimentalMaterialApi",
             "-opt-in=androidx.compose.ui.ExperimentalComposeUiApi",
             "-opt-in=androidx.compose.foundation.ExperimentalFoundationApi",
-            "-opt-in=com.google.accompanist.pager.ExperimentalPagerApi"
+            "-opt-in=com.google.accompanist.pager.ExperimentalPagerApi",
+            "-opt-in=androidx.compose.foundation.layout.ExperimentalLayoutApi"
         )
     }
 }
@@ -116,6 +117,8 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.navigation.compose)
     implementation(libs.multidex)
+
+    implementation(libs.lottie)
 
     with(libs.accompanist) {
         implementation(pager)

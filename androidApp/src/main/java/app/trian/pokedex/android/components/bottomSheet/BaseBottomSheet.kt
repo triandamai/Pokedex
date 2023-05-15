@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -29,6 +30,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import app.trian.pokedex.android.components.button.ButtonPrimary
@@ -39,7 +41,7 @@ import app.trian.pokedex.android.ui.PokedexTheme
 fun BaseBottomSheet(
     textConfirmation: String = "Confirm",
     enableConfirmation: Boolean = true,
-    showButtonConfirmation:Boolean=true,
+    showButtonConfirmation: Boolean = true,
     showLineHeader: Boolean = true,
     onDismiss: () -> Unit = {},
     onConfirm: () -> Unit = {},
@@ -92,12 +94,13 @@ fun BaseBottomSheet(
                 modifier = Modifier.clickable(
                     enabled = true,
                     onClick = onDismiss
-                )
+                ),
+                tint = Color.White
             )
             Spacer(modifier = Modifier.height(16.dp))
             content(this)
             Spacer(modifier = Modifier.height(16.dp))
-            if(showButtonConfirmation) {
+            if (showButtonConfirmation) {
                 ButtonPrimary(
                     text = textConfirmation,
                     enabled = enableConfirmation,

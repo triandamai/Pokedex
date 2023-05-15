@@ -7,9 +7,12 @@
 
 package app.trian.pokedex.data.model
 
+import app.trian.pokedex.schema.collection.COLLECTION
 import app.trian.pokedex.schema.pokemon.POKEMON
 
-data class PokemonModel(
+data class CollectionModel(
+    val collectionId: String = "",
+    val nickName: String = "",
     val pokemonId: String = "",
     val pokemonName: String = "",
     val pokemonImage: String = "",
@@ -28,10 +31,10 @@ data class PokemonModel(
 )
 
 
-fun POKEMON.toModel() = PokemonModel(
+fun COLLECTION.toModel() = CollectionModel(
     pokemonId = pokemonId,
     pokemonName = pokemonName,
-    pokemonImage=pokemonImage,
+    pokemonImage = pokemonImage,
     pokemonDescription = pokemonDescription,
     pokemonHeight = pokemonHeight,
     pokemonWeight = pokemonWeight,
@@ -42,23 +45,8 @@ fun POKEMON.toModel() = PokemonModel(
     pokemonType = pokemonType,
     pokemonWeaknesses = pokemonWeaknesses,
     pokemonEvolutions = pokemonEvolutions,
-    pokemonSpeed=pokemonSpeed
+    pokemonSpeed = pokemonSpeed,
+    collectionId = collectionId,
+    nickName = pokemonNickName
 )
 
-fun PokemonResponse.toModel() = PokemonModel(
-    pokemonId = id,
-    pokemonImage= imageurl,
-    pokemonWeaknesses = weaknesses,
-    pokemonEvolutions = evolutions,
-    pokemonDescription = xdescription,
-    pokemonWeight =weight,
-    pokemonHeight =height,
-    pokemonHp =hp.toDouble(),
-    pokemonDefense = defense.toDouble(),
-    pokemonCategory =category,
-    pokemonAttack =attack.toDouble(),
-    pokemonName =name,
-    pokemonAbilities =abilities,
-    pokemonSpeed =speed.toDouble(),
-    pokemonType =typeofpokemon
-)

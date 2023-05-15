@@ -29,6 +29,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import app.trian.pokedex.android.base.BaseMainApp
+import app.trian.pokedex.android.ui.OnSurface
+import app.trian.pokedex.android.ui.Surface
 
 @Composable
 fun FormInput(
@@ -51,7 +53,7 @@ fun FormInput(
                 text = label,
                 style = MaterialTheme.typography.subtitle2,
                 fontWeight = FontWeight.Normal,
-                color = MaterialTheme.colors.onSurface
+                color = OnSurface
             )
         }
         Spacer(modifier = Modifier.height(6.dp))
@@ -63,16 +65,17 @@ fun FormInput(
             modifier = Modifier
                 .fillMaxWidth(),
             colors = TextFieldDefaults.outlinedTextFieldColors(
-                backgroundColor = Color(0xFFFAFAFA),
+                backgroundColor = Surface,
                 unfocusedBorderColor = Color(0xFFFAFAFA),
                 focusedBorderColor = MaterialTheme.colors.primary,
-                textColor = MaterialTheme.colors.onSurface,
+                textColor = OnSurface,
             ),
             placeholder = {
                 Text(
                     text = placeholder,
                     style = MaterialTheme.typography.subtitle2,
-                    fontWeight = FontWeight.Normal
+                    fontWeight = FontWeight.Normal,
+                    color = OnSurface
                 )
             },
             trailingIcon = trailingIcon,

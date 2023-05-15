@@ -9,21 +9,24 @@
 package app.trian.pokedex.android.feature.dashboard.home
 
 import android.os.Parcelable
+import app.trian.pokedex.data.model.PokemonModel
 import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.RawValue
 import javax.annotation.concurrent.Immutable
 
 @Immutable
 @Parcelize
 data class HomeState(
-    val showBalance: Boolean = true
+    val a: String = ""
 ) : Parcelable
 
 @Immutable
 @Parcelize
 data class HomeDataState(
-   val a:String=""
+    val pokemons: @RawValue List<PokemonModel> = listOf(),
+    val fullName: String = ""
 ) : Parcelable
 
 sealed interface HomeEvent {
-
+    object Catch:HomeEvent
 }

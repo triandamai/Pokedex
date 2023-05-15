@@ -7,41 +7,44 @@
 
 package app.trian.pokedex.android.feature.onboarding
 
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.LinearProgressIndicator
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.StrokeCap
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import app.trian.pokedex.android.ApplicationState
+import app.trian.pokedex.android.R
 import app.trian.pokedex.android.base.BaseMainApp
 import app.trian.pokedex.android.base.UIWrapper
+import app.trian.pokedex.android.components.AnnotationTextItem
+import app.trian.pokedex.android.components.TextWithAction
 import app.trian.pokedex.android.components.button.ButtonPrimary
+import app.trian.pokedex.android.feature.auth.signIn.SignIn
+import app.trian.pokedex.android.feature.dashboard.home.Home
+import app.trian.pokedex.android.ui.OnSurface
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.LottieConstants
+import com.airbnb.lottie.compose.animateLottieCompositionAsState
+import com.airbnb.lottie.compose.rememberLottieComposition
 import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.rememberPagerState
 
 object Onboard {
     const val routeName = "Onboard"
@@ -57,56 +60,90 @@ fun NavGraphBuilder.routeOnboard(
     }
 }
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
 internal fun ScreenOnboard(
     appState: ApplicationState,
 ) = UIWrapper<OnboardViewModel>(appState = appState) {
+    val state by uiState.collectAsState()
 
-    val pagerState = rememberPagerState(
-        initialPage = 0
+    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.pokeball))
+    val progress by animateLottieCompositionAsState(
+        composition = composition,
+        iterations = LottieConstants.IterateForever
     )
 
-    val percentage by remember {
-        derivedStateOf {
-            when (pagerState.currentPage) {
-                0 -> 0.25f
-                1 -> 0.50f
-                2 -> 0.75f
-                3 -> 1f
-                else -> 0.1f
-            }
-        }
-    }
-
-    Box(
-        modifier = Modifier.fillMaxSize()
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(
+                MaterialTheme.colors.surface
+            )
+            .padding(
+                horizontal = 16.dp
+            ),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceBetween
     ) {
-
-        LinearProgressIndicator(
-            progress = percentage,
-            modifier = Modifier
-                .fillMaxWidth()
-                .align(Alignment.TopCenter)
-                .padding(
-                    top = 40.dp,
-                    start = 20.dp,
-                    end = 20.dp
-                )
-                .height(8.dp),
-            strokeCap = StrokeCap.Round
-        )
-        ButtonPrimary(
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(
-                    bottom = 40.dp,
-                    start = 20.dp,
-                    end = 20.dp
-                ),
-            text = "Get Started",
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.Start
         ) {
+            Spacer(modifier = Modifier.height(20.dp))
+            Text(
+                text = "Welcome To",
+                style = MaterialTheme.typography.body1,
+                fontWeight = FontWeight.Medium,
+                color = OnSurface
+            )
+            Text(
+                text = "Pokedex",
+                style = MaterialTheme.typography.h6,
+                fontWeight = FontWeight.Medium,
+                color = MaterialTheme.colors.primary
+            )
+        }
+        Column(
+            modifier = Modifier
+                .fillMaxWidth(
 
+                )
+                .fillMaxHeight(
+                    fraction = 0.5f
+                ),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            LottieAnimation(
+                composition = composition,
+                progress = { progress },
+                modifier = Modifier
+                    .size(200.dp)
+            )
+
+        }
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            ButtonPrimary(
+                text = "Get Started",
+                enabled = state.hasName
+            ) {
+                navigateAndReplaceAll(Home.routeName)
+            }
+            Spacer(modifier = Modifier.height(8.dp))
+            TextWithAction(
+                labels = listOf(
+                    AnnotationTextItem.Text("Don't have account?"),
+                    AnnotationTextItem.Button("Create Here"),
+                ),
+                onTextClick = {
+                    navigateAndReplaceAll(SignIn.routeName)
+                }
+            )
+            Spacer(modifier = Modifier.height(20.dp))
         }
     }
 }

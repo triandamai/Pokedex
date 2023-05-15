@@ -192,7 +192,7 @@ fun rememberApplicationState(
         skipHalfExpanded = true,
         confirmValueChange = {
             event.changeBottomSheetState(it)
-            true
+            false
         }
     )
     val keyboardState by rememberKeyboardState()

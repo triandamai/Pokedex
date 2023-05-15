@@ -35,11 +35,12 @@ class SyncPokemonUseCase @Inject constructor(
                         if (exist == null) {
                             db.pokemonQueries.insertPokemon(
                                 pokemonId = it.id,
+                                pokemonImage=it.imageurl,
                                 pokemonWeaknesses = it.weaknesses,
                                 pokemonEvolutions = it.evolutions,
                                 pokemonDescription = it.xdescription,
-                                pokemonWeight = it.weight.toDouble(),
-                                pokemonHeight = it.height.toDouble(),
+                                pokemonWeight = it.weight,
+                                pokemonHeight = it.height,
                                 pokemonHp = it.hp.toDouble(),
                                 pokemonDefense = it.defense.toDouble(),
                                 pokemonCategory = it.category,

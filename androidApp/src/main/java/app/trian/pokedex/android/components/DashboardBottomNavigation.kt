@@ -42,9 +42,9 @@ sealed class DashboardBottomNavigationMenu(
 
     object MenuMyPokemon : DashboardBottomNavigationMenu(
         route = MyPokemon.routeName,
-        name = R.string.label_nav_community_dashboard,
-        iconActive = R.drawable.nav_community_active,
-        iconInactive = R.drawable.nav_community_inactive
+        name = R.string.label_nav_mypokemon_dashboard,
+        iconActive = R.drawable.nav_mypokemon_active,
+        iconInactive = R.drawable.nav_mypokemon_inactive
     )
 }
 

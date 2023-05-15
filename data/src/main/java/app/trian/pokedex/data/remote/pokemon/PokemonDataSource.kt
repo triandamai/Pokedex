@@ -15,6 +15,8 @@ import app.trian.pokedex.data.model.AbilityResponse
 import app.trian.pokedex.data.model.PokemonResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.resources.get
+import io.ktor.http.ContentType
+import io.ktor.http.contentType
 import javax.inject.Inject
 
 class PokemonDataSource @Inject constructor(
@@ -23,12 +25,16 @@ class PokemonDataSource @Inject constructor(
 ) {
     suspend fun getPokemon(
     ) = safeApiCall<List<PokemonResponse>> {
-        httpClient.get(PokemonApi.GetPokemon())
+        httpClient.get(PokemonApi.GetPokemon()){
+            contentType(ContentType.Application.Json)
+        }
     }
 
     suspend fun getAbility(
     ) = safeApiCall<List<AbilityResponse>> {
-        httpClient.get(PokemonApi.GetAbilities())
+        httpClient.get(PokemonApi.GetAbilities()){
+            contentType(ContentType.Application.Json)
+        }
     }
 
 

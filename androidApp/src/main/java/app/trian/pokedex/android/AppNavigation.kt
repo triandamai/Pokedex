@@ -12,8 +12,10 @@ package app.trian.pokedex.android
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import app.trian.pokedex.android.feature.auth.signIn.routeSignIn
+import app.trian.pokedex.android.feature.catchPokemon.routeCatchPokemon
 import app.trian.pokedex.android.feature.dashboard.home.routeHome
 import app.trian.pokedex.android.feature.dashboard.myPokemon.routeMyPokemon
+import app.trian.pokedex.android.feature.detailPokemon.routeDetailPokemon
 import app.trian.pokedex.android.feature.onboarding.routeOnboard
 import app.trian.pokedex.android.feature.splashScreen.Splash
 import app.trian.pokedex.android.feature.splashScreen.routeSplash
@@ -35,12 +37,16 @@ fun AppNavigation(
         routeSignIn(
             state = applicationState
         )
-
-
         routeHome(
             state = applicationState
         )
         routeMyPokemon(
+            state = applicationState
+        )
+        routeDetailPokemon(
+            state = applicationState
+        )
+        routeCatchPokemon(
             state = applicationState
         )
     }

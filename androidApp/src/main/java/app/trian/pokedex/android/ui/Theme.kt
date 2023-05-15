@@ -8,6 +8,7 @@
 
 package app.trian.pokedex.android.ui
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
@@ -20,26 +21,27 @@ import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 
+@SuppressLint("ConflictingOnColor")
 private val darkColorScheme = darkColors(
-    onPrimary = OnPrimary,
-    onSecondary = OnSecondary,
     onBackground = OnSecondary,
-    onSurface = OnSecondary,
-    onError = OnPrimary,
+    onSurface = OnSurface,
+    onError = ColorOnPrimary,
     primary = Primary,
     primaryVariant = PrimaryVariant,
     secondary = Secondary,
     secondaryVariant = SecondaryVariant,
     background = Background,
     surface = Surface,
-    error = Error
+    error = Error,
+    onPrimary = ColorOnPrimary,
+    onSecondary = OnSecondary
 )
 
 
 private val shapeScheme = Shapes(
-    large = RoundedCornerShape(24.dp),
-    medium = RoundedCornerShape(18.dp),
-    small = RoundedCornerShape(10.dp)
+    large = RoundedCornerShape(20.dp),
+    medium = RoundedCornerShape(14.dp),
+    small = RoundedCornerShape(8.dp)
 )
 
 @Composable
@@ -51,7 +53,7 @@ fun PokedexTheme(
         SideEffect {
             val window = (view.context as Activity).window
             window.statusBarColor = darkColorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = true
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = false
         }
     }
 

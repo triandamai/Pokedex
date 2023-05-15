@@ -23,9 +23,11 @@ import androidx.compose.material.SnackbarHost
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import app.trian.pokedex.android.ApplicationState
+import app.trian.pokedex.android.R
 import app.trian.pokedex.android.components.DashboardBottomNavigation
 import app.trian.pokedex.android.rememberApplicationState
 import app.trian.pokedex.android.ui.PokedexTheme
@@ -79,6 +81,7 @@ fun BaseMainApp(
                 sheetState = appState.bottomSheetState,
             ) {
                 Scaffold(
+                    backgroundColor = MaterialTheme.colors.surface,
                     topBar = {
                         topAppBar(appState)
                     },
@@ -104,7 +107,8 @@ fun BaseMainApp(
                                 )
                             ) {
                                 Icon(
-                                    imageVector = FeatherIcons.Plus,
+
+                                    painter = painterResource(id = R.drawable.ic_pokebal_catch),
                                     contentDescription = "",
                                     tint = MaterialTheme.colors.onPrimary
                                 )

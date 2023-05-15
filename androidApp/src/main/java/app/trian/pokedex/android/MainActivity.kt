@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
     private fun listenFromChild() {
         eventListener.addOnEventListener(object : ToAppStateEventListener {
             override fun onEvent(eventName: String) {
-                TODO("Not yet implemented")
+
             }
 
             override fun exit() {

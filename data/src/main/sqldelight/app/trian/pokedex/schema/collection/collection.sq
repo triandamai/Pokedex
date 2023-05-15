@@ -1,8 +1,10 @@
 import kotlin.collections.List;
 
-CREATE TABLE IF NOT EXISTS POKEMON(
-    pokemonId TEXT NOT NULL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS COLLECTION(
+    collectionId TEXT NOT NULL PRIMARY KEY,
+    pokemonId TEXT NOT NULL,
     pokemonName TEXT NOT NULL,
+    pokemonNickName TEXT NOT NULL,
     pokemonImage TEXT NOT NULL,
     pokemonDescription TEXT NOT NULL,
     pokemonHeight TEXT NOT NULL ,
@@ -18,23 +20,25 @@ CREATE TABLE IF NOT EXISTS POKEMON(
     pokemonEvolutions TEXT AS List<String> NOT NULL
 );
 
+getAll:
+SELECT * FROM COLLECTION;
+
 getById:
-SELECT * FROM POKEMON WHERE pokemonId=?;
+SELECT * FROM COLLECTION WHERE collectionId=?;
 
 getByIds:
-SELECT * FROM POKEMON WHERE pokemonId IN ?;
+SELECT * FROM COLLECTION WHERE collectionId IN ?;
 
 getTopOrNull:
-SELECT * FROM POKEMON LIMIT 1;
-
-getCount:
-SELECT COUNT(*) FROM POKEMON;
+SELECT * FROM COLLECTION LIMIT 1;
 
 insertPokemon:
 INSERT INTO
-POKEMON(
+COLLECTION(
+    collectionId,
     pokemonId,
     pokemonName,
+    pokemonNickName,
     pokemonImage,
     pokemonDescription,
     pokemonHeight,
@@ -57,6 +61,8 @@ VALUES (
 ?,
 ?,
 ?,
+?,
+?,
 ?,?,
 ?,
 ?,
@@ -67,4 +73,4 @@ VALUES (
 );
 
 deleteUserById:
-DELETE FROM POKEMON WHERE pokemonId=?;
+DELETE FROM COLLECTION WHERE collectionId=?;

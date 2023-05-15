@@ -14,11 +14,11 @@ import javax.annotation.concurrent.Immutable
 @Immutable
 @Parcelize
 data class OnboardState(
-    val percentage:Float=01f
+    val hasName:Boolean=false
 ) : Parcelable
 
 
-sealed class OnboardEvent{
-    data class PagerChanges(val page:Int=0):OnboardEvent()
+sealed interface OnboardEvent{
+
 
 }

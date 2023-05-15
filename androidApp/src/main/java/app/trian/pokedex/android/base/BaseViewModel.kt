@@ -154,6 +154,10 @@ abstract class BaseViewModel<State : Parcelable, Action>(
 
     //end region
 
+    //
+    fun exit() = _app.event.exit()
+    //
+
     //region bottom sheet
     fun showBottomSheet() = _app.showBottomSheet()
     fun hideBottomSheet() = _app.hideBottomSheet()

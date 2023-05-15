@@ -15,6 +15,7 @@ import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.android.AndroidSqliteDriver
 import app.trian.pokedex.data.common.listOfStringsAdapter
 import app.trian.pokedex.data.local.SharedPref
+import app.trian.pokedex.schema.collection.COLLECTION
 import app.trian.pokedex.schema.pokemon.POKEMON
 import com.bluehabit.budgetku.db.Database
 import com.chuckerteam.chucker.api.ChuckerCollector
@@ -79,6 +80,12 @@ object DataModule {
             pokemonAbilitiesAdapter = listOfStringsAdapter,
             pokemonEvolutionsAdapter = listOfStringsAdapter,
             pokemonTypeAdapter = listOfStringsAdapter
+        ),
+        COLLECTIONAdapter = COLLECTION.Adapter(
+            pokemonWeaknessesAdapter = listOfStringsAdapter,
+            pokemonAbilitiesAdapter = listOfStringsAdapter,
+            pokemonEvolutionsAdapter = listOfStringsAdapter,
+            pokemonTypeAdapter = listOfStringsAdapter
         )
     )
 
@@ -112,7 +119,7 @@ object DataModule {
             defaultRequest {
                 url(app.trian.pokedex.android.BuildConfig.BASE_URL)
                 val locale = sharedPref.getLanguage()
-                header("Accept-Language", locale.ifEmpty { Locale.ENGLISH.language })
+                //header("Accept-Language", locale.ifEmpty { Locale.ENGLISH.language })
                 contentType(ContentType.Application.Json)
             }
             install(ContentNegotiation) {

@@ -41,7 +41,7 @@ fun ButtonPrimary(
         onClick = onClick,
         modifier = properties
             .height(height),
-        shape = MaterialTheme.shapes.large,
+        shape = MaterialTheme.shapes.small,
         colors = ButtonDefaults.buttonColors()
     ) {
         Text(

@@ -10,22 +10,26 @@
 package app.trian.pokedex.android.feature.dashboard.myPokemon
 
 import android.os.Parcelable
+import app.trian.pokedex.data.model.CollectionModel
 import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.RawValue
 import javax.annotation.concurrent.Immutable
 
 @Immutable
 @Parcelize
 data class MyPokemonState(
-    val selectedTab:Int=0
+    val fullName:String=""
 ) : Parcelable
 
 @Immutable
 @Parcelize
 data class MyPokemonDataState(
-    val a:String=""
+    val myPokemon:@RawValue List<CollectionModel> = listOf()
 ) : Parcelable
 
 
-sealed interface CommunityEvent{
+sealed interface MyPokemonEvent{
+    object Catch:MyPokemonEvent
 
+    object SignOut:MyPokemonEvent
 }

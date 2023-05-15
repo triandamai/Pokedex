@@ -40,6 +40,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import app.trian.pokedex.android.base.BaseMainApp
 import app.trian.pokedex.android.base.extensions.appendButton
+import app.trian.pokedex.android.ui.OnSurface
 
 sealed class AnnotationTextItem(var text: String) {
     data class Text(var label: String, var style: TextStyle = TextStyle.Default) : AnnotationTextItem(label)
@@ -193,7 +194,7 @@ fun TextWithAction(
     ClickableText(
         text = annotates,
         style = MaterialTheme.typography.body1.copy(
-            color = MaterialTheme.colors.onSecondary
+            color = OnSurface
         ),
         onClick = { offset ->
             labels.forEachIndexed { index, _ ->
