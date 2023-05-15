@@ -24,7 +24,16 @@ class SyncPokemonUseCase @Inject constructor(
     operator fun invoke() = flow {
         emit(Response.Loading)
         when (val result = dataSource.getPokemon()) {
-            is Response.Error -> emit(result)
+            is Response.Error -> {
+                val data = db.pokemonQueries.getAll().executeAsList()
+                if (data.isNotEmpty()) {
+                    emit(Response.Result(data.map { it.toModel() }))
+                } else {
+                    emit(result)
+                }
+
+            }
+
             Response.Loading -> emit(Response.Loading)
             is Response.Result -> {
                 val transform = db.transactionWithResult {
@@ -35,7 +44,7 @@ class SyncPokemonUseCase @Inject constructor(
                         if (exist == null) {
                             db.pokemonQueries.insertPokemon(
                                 pokemonId = it.id,
-                                pokemonImage=it.imageurl,
+                                pokemonImage = it.imageurl,
                                 pokemonWeaknesses = it.weaknesses,
                                 pokemonEvolutions = it.evolutions,
                                 pokemonDescription = it.xdescription,

@@ -17,7 +17,7 @@ import javax.annotation.concurrent.Immutable
 @Immutable
 @Parcelize
 data class HomeState(
-    val a: String = ""
+    val loading: Boolean = true
 ) : Parcelable
 
 @Immutable

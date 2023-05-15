@@ -5,8 +5,6 @@
  * Proprietary and confidential
  */
 
-
-
 package app.trian.pokedex.android.feature.auth.signIn
 
 import android.os.Parcelable

@@ -18,6 +18,9 @@ CREATE TABLE IF NOT EXISTS POKEMON(
     pokemonEvolutions TEXT AS List<String> NOT NULL
 );
 
+getAll:
+SELECT * FROM POKEMON;
+
 getById:
 SELECT * FROM POKEMON WHERE pokemonId=?;
 

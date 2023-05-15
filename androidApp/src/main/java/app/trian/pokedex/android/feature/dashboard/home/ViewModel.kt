@@ -68,11 +68,21 @@ class HomeViewModel @Inject constructor(
     private fun getPokemon() = async {
         syncPokemonUseCase()
             .onEach(
-                loading = {},
+                loading = {
+                    commit {
+                        copy(loading = true)
+                    }
+                },
                 error = {
                     showSnackbar(this)
+                    commit {
+                        copy(loading = false)
+                    }
                 },
                 success = {
+                    commit {
+                        copy(loading = false)
+                    }
                     commitData {
                         copy(
                             pokemons = this@onEach
