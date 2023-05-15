@@ -277,7 +277,7 @@ internal fun ScreenDetailPokemon(
                 item {
                     Spacer(modifier = Modifier.height(18.dp))
                 }
-                if(state.selectedMenu == 2){
+                if(state.selectedMenu == 0){
                     item {
                         Column(
                             modifier = Modifier
@@ -325,6 +325,40 @@ internal fun ScreenDetailPokemon(
                     item {
                         Spacer(modifier = Modifier.height(18.dp))
                     }
+                }
+                if(state.selectedMenu == 1){
+                    item {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(
+                                    end = 16.dp
+                                )
+                        ) {
+                            Text(
+                                text = "Evolution",
+                                style = MaterialTheme.typography.body1,
+                                fontWeight = FontWeight.Medium,
+                                color = Color.White
+                            )
+                            Spacer(modifier = Modifier.height(10.dp))
+                        }
+                    }
+                    gridItems(dataState.evolution, columnCount = 2){
+                        ItemPokemon(
+                            pokemonName = it.pokemonName,
+                            image = it.pokemonImage,
+                            hp = it.pokemonHp,
+                            defense = it.pokemonDefense,
+                            attack = it.pokemonAttack,
+                            onClick = {}
+                        )
+                    }
+                    item {
+                        Spacer(modifier = Modifier.height(18.dp))
+                    }
+                }
+                if(state.selectedMenu == 2){
                     item {
                         Column(
                             modifier = Modifier
@@ -387,36 +421,11 @@ internal fun ScreenDetailPokemon(
                             )
                         }
                     }
-                }
-                if(state.selectedMenu == 1){
                     item {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(
-                                    end = 16.dp
-                                )
-                        ) {
-                            Text(
-                                text = "Base Stats",
-                                style = MaterialTheme.typography.body1,
-                                fontWeight = FontWeight.Medium,
-                                color = Color.White
-                            )
-                            Spacer(modifier = Modifier.height(10.dp))
-                        }
-                    }
-                    gridItems(dataState.evolution, columnCount = 2){
-                        ItemPokemon(
-                            pokemonName = it.pokemonName,
-                            image = it.pokemonImage,
-                            hp = it.pokemonHp,
-                            defense = it.pokemonDefense,
-                            attack = it.pokemonAttack,
-                            onClick = {}
-                        )
+                        Spacer(modifier = Modifier.height(18.dp))
                     }
                 }
+
             })
         }
     }
